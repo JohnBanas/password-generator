@@ -1,7 +1,7 @@
 # Password Generator
 
 ## Purpose
-A website that generates a password based on a users set parameters, with the ability to have uppercase, lowercase, numbers, and special characters.
+A website that generates a password based on a user's set parameters, with the ability to have uppercase, lowercase, numbers, and special characters.
 
 ## Built With
 * HTML
