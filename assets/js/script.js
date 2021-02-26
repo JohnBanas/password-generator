@@ -1,7 +1,22 @@
 // Assignment code here
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
 
 //variables for criteria
-
 
 var caseLower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
@@ -17,12 +32,13 @@ var passwordLength = [];
 
 //number of characters in password function
 function passLength() {
+
   num = prompt("Choose a number of characters for your password between 8 - 128.");
   if (num < 8 || num > 128 || isNaN(num) === true) {
     window.alert("Please choose between 8 - 128.");
     passLength();
   }
-  passwordLength.push(num);
+  passwordLength = num;
 }
 
 
@@ -71,6 +87,7 @@ var generatePassword = function() {
 
   //a container for the random password array
   let prePassword = [];
+  
 
   //call the number of the password
   passLength();
@@ -83,27 +100,15 @@ var generatePassword = function() {
   let randomCharacter = mainArray[Math.floor(Math.random() * mainArray.length)];
   prePassword = prePassword.concat(randomCharacter);   
   }
-
+ console.log(prePassword);
   //take a random array items and turn into string for final password
   var finalPassword = prePassword.join(' ');
+  console.log(finalPassword);
   return finalPassword;
+  
 };    
 
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
 
 /* Create new secure password:
