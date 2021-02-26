@@ -13,6 +13,9 @@ var specChar = ["!",'"',"#","$","%","&","'","(",")","*","+",",","-",".","/",":",
 
 var mainArray = [];
 
+var passwordLength = [];
+
+
 
 
 //number of characters in password function
@@ -22,71 +25,77 @@ function passLength() {
     window.alert("Please choose between 8 - 128.");
     passLength();
   }
+  passwordLength.push(num);
 }
+
  
 
+//random selection from array
 
-//function to generate password
-var generatePassword = function() {
- //create a function to prompt for criteria
 
- //call the number of the password
- passLength();
 
+var allArrayContainer = function() {
   //confirm lowercase
-
   var confirmLowercase = window.confirm("Would you like lowercase characters, click 'OK' for YES or click 'CANCEL' for NO.");
 
   if (confirmLowercase) {
-    mainArray.push(caseLower);
-    for (i = 0; i < caseLower.length; i ++){
-      mainArray.push(caseLower[i]);
-    }
+    mainArray = mainArray.concat(caseLower);
   }
-  console.log(mainArray.length);
   //confirm uppercase
 
   var confirmUppercase = window.confirm("Would you like uppercase characters, click 'OK' for YES or click 'CANCEL' for NO.");
 
   if (confirmUppercase) {
-    mainArray.push(caseUpper);
-    for (i = 0; i < caseUpper.length; i ++){
-      mainArray.push(caseUpper[i]);
-    }
+    mainArray = mainArray.concat(caseUpper);
   }
-  console.log(mainArray.length);
   
   //confirm numbers
 
   var confirmNum = confirm("Would you like to add numbered characters, click 'OK' for YES or click 'CANCEL' for NO.");
 
   if (confirmNum) {
-    mainArray.push(number);
-    for (i = 0; i < number.length; i ++){
-      mainArray.push(number[i]);
-    }
+    mainArray = mainArray.concat(number);
   }
-
-  console.log(mainArray.length);
   
   //confirm special characters
 
   var confirmSpecialCharacter = window.confirm("Would you like to add special characters, click 'OK' for YES or click 'CANCEL' for NO.");
 
   if (confirmSpecialCharacter) { 
-    mainArray.push(specChar);
-    for (i = 0; i < specChar.length; i ++){
-      mainArray.push(specChar[i]);
-    }
+    mainArray = mainArray.concat(specChar);
   }
 
-  console.log(mainArray.length);
+  //make sure they select at least one option
+  if (confirmLowercase === false && confirmUppercase === false && confirmNum === false && confirmSpecialCharacter === false ) {
+    window.alert("Please choose at least one type of character choice.");
+    allArrayContainer();
+  }
+  
+  //end of queries. call mainArray
+  
+}
 
-  
-  
-  //end of queries.
-  // function to use number of characters and call generatePassword
-  
+
+ 
+
+
+//function to generate password
+var generatePassword = function() {
+
+//a container for the final password
+debugger;
+
+ //call the number of the password
+ passLength();
+ //call function to prompt for criteria
+allArrayContainer();
+
+ //create function to use number of characters and call generatePassword to random characters
+for (i=0; i < passwordLength; i++){
+  console.log(mainArray[i]);
+
+}
+
 };    
 
 
@@ -126,25 +135,7 @@ generateBtn.addEventListener("click", writePassword);
   4) After answering each prompt input should be validated and at least one input type should be selected
   5) All the prompts are given a valid input
   6) Password generated to match selected criteria
-  7) Password should be written in an alert or written to the page.
-  
-  
-    if (num > 8 && num < 128) {
-    console.log("Number of characters in password." + num);
-    } else {
-
-  }
-
-
-var finalPassword =function() {
-    for (var i=0; i < parseInt(passLength); i++) {
-      mainArray[Math.floor(mainArray.length * Math.random())];
-    }
-  }  
-
-  console.log(finalPassword.toString());
-  return('"' + finalPassword + '"' + ' is your new password.');
-  */
+  7) Password should be written in an alert or written to the page.*/
   
   
 
