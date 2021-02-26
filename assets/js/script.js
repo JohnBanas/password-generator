@@ -15,9 +15,6 @@ var mainArray = [];
 
 var passwordLength = [];
 
-
-
-
 //number of characters in password function
 function passLength() {
   num = prompt("Choose a number of characters for your password between 8 - 128.");
@@ -27,11 +24,6 @@ function passLength() {
   }
   passwordLength.push(num);
 }
-
- 
-
-//random selection from array
-
 
 
 var allArrayContainer = function() {
@@ -70,34 +62,31 @@ var allArrayContainer = function() {
     window.alert("Please choose at least one type of character choice.");
     allArrayContainer();
   }
-  
   //end of queries. 
   
 }
 
-
- 
-
-
 //function to generate password
 var generatePassword = function() {
 
-//a container for the final password
-let prePassword = [];
+  //a container for the random password array
+  let prePassword = [];
 
- //call the number of the password
- passLength();
- //call function to prompt for criteria
-allArrayContainer();
+  //call the number of the password
+  passLength();
+  //call function to prompt for criteria
+  allArrayContainer();
 
- //create function to use number of characters and call generatePassword to random characters
-for (let i=0; i < passwordLength; i++){
+  //create function to use number of characters and call generatePassword to random characters
+  for (let i=0; i < passwordLength; i++){
+  //random selection from array
   let randomCharacter = mainArray[Math.floor(Math.random() * mainArray.length)];
-  prePassword = prePassword.concat(randomCharacter); 
-  
-}
- var finalPassword = prePassword.join(' ');
- return finalPassword;
+  prePassword = prePassword.concat(randomCharacter);   
+  }
+
+  //take a random array items and turn into string for final password
+  var finalPassword = prePassword.join(' ');
+  return finalPassword;
 };    
 
 
