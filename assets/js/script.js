@@ -71,7 +71,7 @@ var allArrayContainer = function() {
     allArrayContainer();
   }
   
-  //end of queries. call mainArray
+  //end of queries. 
   
 }
 
@@ -83,7 +83,7 @@ var allArrayContainer = function() {
 var generatePassword = function() {
 
 //a container for the final password
-debugger;
+let prePassword = [];
 
  //call the number of the password
  passLength();
@@ -91,11 +91,13 @@ debugger;
 allArrayContainer();
 
  //create function to use number of characters and call generatePassword to random characters
-for (i=0; i < passwordLength; i++){
-  console.log(mainArray[i]);
-
+for (let i=0; i < passwordLength; i++){
+  let randomCharacter = mainArray[Math.floor(Math.random() * mainArray.length)];
+  prePassword = prePassword.concat(randomCharacter); 
+  
 }
-
+ var finalPassword = prePassword.join(' ');
+ return finalPassword;
 };    
 
 
