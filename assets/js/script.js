@@ -107,7 +107,7 @@ var generatePassword = function() {
   }
  console.log(prePassword);
   //take a random array items and turn into string for final password
-  var finalPassword = prePassword.join(' ');
+  var finalPassword = prePassword.join('');
   console.log(finalPassword);
   return finalPassword;
   
